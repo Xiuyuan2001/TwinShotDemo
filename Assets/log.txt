@@ -1,0 +1,41 @@
+DAY 1 - 10.1
+创建人物状态机(PlayerStateMachine)、人物基本状态(idle/move/air/attack/grounded/jump)、人物类(Player),以及相关的动画；
+创建敌人状态机(EnemyStateMachine)、史莱姆基本状态、史莱姆类(EnemySlim)，以及相关的动画；
+绘制简单平台进行测试；
+
+DAY 2 - 10.2
+完善了PlayerAttackState,将Arrow做成了Prefab，攻击时进行实例化；发现箭的生成快于动画结束，随加入携程延迟生成；
+完成EnemyFlyElephant状态和逻辑制作；
+完成了单向平台、陷阱平台、正常平台的制作；
+
+DAY3 - 10.3
+复刻了Level1关卡；
+完善状态数据类CharacterStats/PlayerStats/EnemyStats，同时完善了伤害逻辑，受伤逻辑；
+创建了PlayerHurtState，想将hurt作为一个单独的状态，使用改变材质的方法加入Flash效果，但动画总在最后一帧卡住，寻找原因无果随删除，直接手动调整了hurt动画每一帧的Color以实现受击无敌效果；
+
+DAY4 - 10.4
+加入HealthBarUI和HealthBarSlide来实时更新玩家血量，并加入了PlayerDeadState；
+因为在素材中没看到有不同生命值所对应的图片，对血量的更新还是使用了Slider来进行，将Slider/FillArea/Fill的image改变为了一张红心的图片，imageType改为tiled平铺模式，通过改变渲染大小，
+和maxValue来实现每次受伤Slider滑动1/3（一颗心）的效果；
+加入Vcam跟随玩家，调整DeadZone/SoftZone实现延迟效果；
+开始制作UI部分 - Menu/VictorUI/ScoreBar/SettingsButtons/...
+
+DAY5 - 10.5
+通过各种教程完成了场景加载、切换的实现 - SceneLoadManager；
+复刻了Level2关卡；
+调整了部分UI组件进入Persistent场景；
+完善摄像机边界Bounds(cinemachineconfiner2D)、以及实现自动寻找边界的BoundsManager（Persistent 与 Level x 的跨场景实现）；
+完善上下贯通机制；
+
+DAY 6 - 10.6
+完善界面文本显示，添加了LevelScore和TotoalScore的显示；
+完善音频系统，添加对应的音效和BGM，以及菜单音乐按钮逻辑；
+制作四种特殊Buff，完善了拾取飞行道具后的逻辑，添加了PlayerFlyState，并加入canFly（bool）进行状态判断；
+设置了摄像机背景图，以及滚动云层背景图；原以为要使用双摄相机来进行不同层的渲染，调整多次无果后，发现只要将BackGround所属的Canvas 中的 Render Camrea 选择为 Main Camera 就能和 Vcam 
+正常合作运行了；
+
+DAY7 - 10.7
+完成小黑的制作;
+完善箭矢闪烁效果；
+完善Failure_UI等;
+查漏补缺，修修bug；
